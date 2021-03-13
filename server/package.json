@@ -1,0 +1,7 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "mishlist server",
+  "main": "src/index.js",
+  "license": "MIT"
+}
