@@ -3,5 +3,8 @@
   "version": "0.0.1",
   "description": "mishlist server",
   "main": "src/index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
