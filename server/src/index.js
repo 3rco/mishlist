@@ -1,4 +1,5 @@
 import express from 'express';
+// import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
@@ -22,6 +23,7 @@ mongoose.connect(
 
 const server = express();
 
+server.use(express.json())
 server.use('/api', userRoutes);
 
 server.listen(PORT, () => {
