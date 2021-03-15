@@ -1,5 +1,7 @@
 import express from 'express';
-import { body } from 'express-validator';
+import validator from 'express-validator';
+
+const { body } = validator;
 
 import { 
   getUserByUserName, 

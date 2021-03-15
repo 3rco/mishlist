@@ -1,8 +1,10 @@
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';
-import { validationResult } from 'express-validator';
+import validator from 'express-validator';
 
 import userModel from '../models/user-model.js';
+
+const { validationResult } = validator;
 
 export const getUserByUserName = (req, res) => {
   const userName = req.params.username;
