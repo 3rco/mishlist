@@ -13,8 +13,11 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
+import env from "react-dotenv";
 
 import Copyright from "../components/copyright";
+
+const apiUrl = env.API_URL || "http://localhost:3001/api";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -46,10 +49,8 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("handleSubmit", userName, email, password);
-
     axios
-      .post("http://localhost:3001/api/signup", {
+      .post(`${apiUrl}/signup`, {
         userName: userName,
         email: email,
         password: password,

@@ -13,8 +13,11 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
+import env from "react-dotenv";
 
 import Copyright from "../components/copyright";
+
+const apiUrl = env.API_URL || "http://localhost:3001/api";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,10 +61,8 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("handleSubmit", email, password);
-
     axios
-      .post("http://localhost:3001/api/login", {
+      .post(`${apiUrl}/login`, {
         email: email,
         password: password,
       })
