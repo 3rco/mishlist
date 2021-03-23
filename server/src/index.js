@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import userRoutes from "./routes/users-routes.js";
 import { createSuperman } from "./controllers/users-controllers.js";
@@ -26,16 +27,9 @@ mongoose
 
 const server = express();
 
-server.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
+server.options("*", cors());
 
-  next();
-});
+server.use(cors());
 server.use(express.json());
 server.use("/api", userRoutes);
 
